@@ -43,7 +43,7 @@ module.exports = {
                 "secondary-50": "#FFBA70",
                 "neutrals-400": "#001D29",
                 "neutrals-200": "#003952",
-                "neutrals-50": "rgba(0,57,82,0.25)",
+                "neutrals-25": "rgba(0,57,82,0.25)",
                 "white-100": "#FFFFFF",
                 "white-80": "rgba(255,255,255,0.8)",
                 "warning-100": "#FE3D3D",

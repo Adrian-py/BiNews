@@ -18,7 +18,7 @@
             <ul class="flex items-center gap-[2rem] text-label-m font-semibold desktop-s:px-[2rem]">
                 <li><a href="/home">Home</a></li>
                 <li><a href="/latest-news">Latest News</a></li>
-                <li><a href="/about-us">About Us</a></li>
+
             </ul>
         </div>
 
@@ -33,6 +33,7 @@
             <div class="relative flex items-center gap-[0.75rem]">
                 <img src="{{ asset('storage/images/' . Auth::user()->image) }}" alt="User Profile Picture" class="w-[2.5rem] aspect-square">
                 <h2 class="text-body-l">{{ Auth::user()->name }}</h2>
+
                 <form action="/logout" method="POST">
                     @csrf
                     <button type="submit">Logout</button>

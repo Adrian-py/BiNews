@@ -480,6 +480,12 @@ video {
 .left-0 {
   left: 0px;
 }
+.z-\[-2\] {
+  z-index: -2;
+}
+.z-\[-1\] {
+  z-index: -1;
+}
 .mb-\[2vh\] {
   margin-bottom: 2vh;
 }
@@ -504,6 +510,9 @@ video {
 .mr-\[0\.5rem\] {
   margin-right: 0.5rem;
 }
+.mb-\[2\.5rem\] {
+  margin-bottom: 2.5rem;
+}
 .flex {
   display: flex;
 }
@@ -513,9 +522,17 @@ video {
 .h-screen {
   height: 100vh;
 }
-.h-fit {
-  height: -moz-fit-content;
-  height: fit-content;
+.h-full {
+  height: 100%;
+}
+.h-\[35\.56vh\] {
+  height: 35.56vh;
+}
+.h-\[50vh\] {
+  height: 50vh;
+}
+.min-h-\[60vh\] {
+  min-height: 60vh;
 }
 .w-screen {
   width: 100vw;
@@ -586,6 +603,16 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(255 156 51 / var(--tw-bg-opacity));
 }
+.bg-neutrals-25 {
+  background-color: rgba(0,57,82,0.25);
+}
+.bg-white-80 {
+  background-color: rgba(255,255,255,0.8);
+}
+.bg-primary-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 188 255 / var(--tw-bg-opacity));
+}
 .px-hor-mob {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -610,6 +637,14 @@ video {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+.px-hor {
+  padding-left: 5.55rem;
+  padding-right: 5.55rem;
+}
+.py-\[2vh\] {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
 .text-center {
   text-align: center;
 }
@@ -633,6 +668,12 @@ video {
 }
 .text-label-m {
   font-size: 1rem;
+}
+.text-headline-l {
+  font-size: 4rem;
+}
+.text-headline-s {
+  font-size: 1.75rem;
 }
 .font-bold {
   font-weight: 700;
@@ -667,12 +708,37 @@ video {
 }
 @media (min-width: 1280px) {
 
+  .desktop-s\:relative {
+    position: relative;
+  }
+
   .desktop-s\:mb-0 {
     margin-bottom: 0px;
   }
 
+  .desktop-s\:hidden {
+    display: none;
+  }
+
+  .desktop-s\:h-auto {
+    height: auto;
+  }
+
+  .desktop-s\:min-h-fit {
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+
+  .desktop-s\:w-\[44\.4vw\] {
+    width: 44.4vw;
+  }
+
   .desktop-s\:flex-row {
     flex-direction: row;
+  }
+
+  .desktop-s\:items-start {
+    align-items: flex-start;
   }
 
   .desktop-s\:justify-start {
@@ -706,6 +772,11 @@ video {
   .desktop-s\:px-\[2rem\] {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .desktop-s\:py-\[5rem\] {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
   .desktop-s\:text-left {

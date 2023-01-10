@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class Tags extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,9 @@ return new class extends Migration
     public function up()
     {
         //
-        Schema::create("news_post", function(Blueprint $table){
+        Schema::create("tags", function(Blueprint $table){
             $table->id();
-            $table->string("title");
-            $table->string("content");
-            $table->foreignId("users_id");
-            $table->foreignId("news_tags_id");
-            $table->string("image");
+            $table->string("name");
         });
     }
 
@@ -33,4 +29,4 @@ return new class extends Migration
     {
         //
     }
-};
+}
