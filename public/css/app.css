@@ -693,6 +693,9 @@ video {
   --tw-text-opacity: 1;
   color: rgb(0 151 218 / var(--tw-text-opacity));
 }
+.underline {
+  text-decoration-line: underline;
+}
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

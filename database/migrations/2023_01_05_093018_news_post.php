@@ -14,9 +14,10 @@ return new class extends Migration
     public function up()
     {
         //
-        Schema::create("news_post", function(Blueprint $table){
+        Schema::create("news_posts", function(Blueprint $table){
             $table->id();
             $table->string("title");
+            $table->string("slug");
             $table->string("content");
             $table->foreignId("users_id");
             $table->foreignId("news_tags_id");

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Models\NewsPost;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,7 +37,9 @@ Route::middleware("auth")->group(function (){
 
     // Home Page
     Route::get("/home", function(){
-        return view("pages.home");
+        return view("pages.home", [
+            "news_list" => NewsPost::all(),
+        ]);
     });
 });
 

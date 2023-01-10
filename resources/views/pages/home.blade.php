@@ -28,6 +28,13 @@
         @auth
 
         @endauth
+
+        <section class="">
+            <h4>BINEWS</h4>
+            <h2>Read and Keep Up With The Latest News</h2>
+
+            @include("partials.news-list")
+        </section>
     </main>
 
     @include("partials.footer")
