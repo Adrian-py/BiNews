@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\NewsTags;
 use Illuminate\Database\Seeder;
 
 class NewsTagsSeeder extends Seeder
@@ -13,6 +14,6 @@ class NewsTagsSeeder extends Seeder
      */
     public function run()
     {
-        //
+       NewsTags::factory(30)->create();
     }
 }

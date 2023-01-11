@@ -17,8 +17,7 @@ class NewsPostFactory extends Factory
         $values = [
             "title" => $this->faker->words(rand(5, 10), true),
             "content" => $this->faker->text(),
-            "users_id" => 1,
-            "news_tags_id" => $this->faker->numberBetween(1, 6),
+            "user_id" => $this->faker->numberBetween(1, 5)
         ];
 
         $values["slug"] = Str::slug($values["title"]);
