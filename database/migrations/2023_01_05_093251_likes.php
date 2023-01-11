@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId("users_id");
             $table->foreignId("news_post_id");
+            $table->timestamps();
         });
     }
 

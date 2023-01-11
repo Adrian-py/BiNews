@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\NewsPost;
 use Illuminate\Database\Seeder;
 
 class NewsPostSeeder extends Seeder
@@ -14,5 +15,6 @@ class NewsPostSeeder extends Seeder
     public function run()
     {
         //
+        NewsPost::factory(20)->create();
     }
 }

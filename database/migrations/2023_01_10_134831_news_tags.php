@@ -18,6 +18,7 @@ class NewsTags extends Migration
             $table->id();
             $table->foreignId("news_post_id");
             $table->foreignId("tags_id");
+            $table->timestamps();
         });
     }
 
