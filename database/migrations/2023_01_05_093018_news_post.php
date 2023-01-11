@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string("slug");
             $table->string("content");
             $table->foreignId("users_id");
-            $table->foreignId("news_tags_id");
             $table->string("image")->nullable();
             $table->timestamps();
         });

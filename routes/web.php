@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware("guest")->group(function (){
     // Welcome Page
     Route::get('/', function () {
-        return view('pages.home');
+        return view('pages.home', [
+            "news_list" => NewsPost::all(),
+        ]);
     });
 
     // Login Page
