@@ -17,7 +17,7 @@ class NewsTags extends Migration
         Schema::create("news_tags", function(Blueprint $table){
             $table->id();
             $table->foreignId("news_post_id");
-            $table->foreignId("tags_id");
+            $table->foreignId("tag_id");
             $table->timestamps();
         });
     }

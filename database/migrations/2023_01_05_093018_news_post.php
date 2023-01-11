@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("title");
             $table->string("slug");
             $table->string("content");
-            $table->foreignId("users_id");
+            $table->foreignId("user_id");
             $table->string("image")->nullable();
             $table->timestamps();
         });

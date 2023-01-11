@@ -9,11 +9,4 @@ class Likes extends Model
 {
     use HasFactory;
 
-    public function users(){
-        return $this->belongsTo(User::class);
-    }
-
-    public function newsPost(){
-        return $this->belongsTo(NewsPost::class);
-    }
 }
