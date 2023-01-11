@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tag;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class TagSeeder extends Seeder
 {
@@ -15,14 +15,12 @@ class TagSeeder extends Seeder
     public function run()
     {
         //
+        $tags = ["sports", "politics", "economy", "technology", "lifestyle", "health"];
 
-        DB::table('tags')->insert([
-            ['name' => 'Sports'],
-            ['name' => 'Politics'],
-            ['name' => 'Economy'],
-            ['name' => 'Technology'],
-            ['name' => 'Lifestyle'],
-            ['name' => 'Health']
-        ]);
+        foreach($tags as $tag){
+            Tag::factory()->state([
+                "name" => $tag,
+            ])->create();
+        }
     }
 }

@@ -16,14 +16,6 @@ class NewsPostSeeder extends Seeder
     public function run()
     {
         //
-        NewsPost::factory(20)
-            ->has(
-                NewsTags::factory()
-                    ->count(1)
-                    ->state(function (array $attributes, NewsPost $newsPost){
-                        return ["news_post_id" => $newsPost->id];
-                    }
-                )
-            )->create();
+        NewsPost::factory()->count(20)->create();
     }
 }

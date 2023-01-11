@@ -24,14 +24,6 @@ class UserSeeder extends Seeder
         ]);
 
         User::factory(5)
-            ->has(
-                Likes::factory()
-                    ->count(4)
-                    ->state(
-                        function (array $attributes, User $user){
-                            return ["user_id" => $user->id];
-                        }
-                    )
-                )->create();
+            ->has(Likes::factory()->count(3))->create();
     }
 }

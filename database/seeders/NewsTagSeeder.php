@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Likes;
+use App\Models\NewsTags;
+use Database\Factories\NewsTagsFactory;
 use Illuminate\Database\Seeder;
 
-class LikesSeeder extends Seeder
+class NewsTagSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +16,6 @@ class LikesSeeder extends Seeder
     public function run()
     {
         //
-        Likes::factory(30)->create();
+        NewsTags::factory()->count(40)->create();
     }
 }
