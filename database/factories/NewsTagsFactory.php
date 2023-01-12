@@ -16,7 +16,7 @@ class NewsTagsFactory extends Factory
         return [
             //
             "news_post_id" => $this->faker->numberBetween(1, 20),
-            "tag_id" => $this->faker->numberBetween(1, 2),
+            "tag_id" => $this->faker->numberBetween(1, 6),
         ];
     }
 }

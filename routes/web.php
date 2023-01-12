@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\NewsController;
 use App\Models\NewsPost;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,7 @@ Route::middleware("auth")->group(function (){
             "news_list" => NewsPost::all(),
         ]);
     });
+    Route::get("/news/{slug}", [NewsController::class, "detail"]);
 });
 
 
