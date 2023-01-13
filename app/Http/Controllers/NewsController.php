@@ -25,4 +25,11 @@ class NewsController extends Controller
         #temporary use home view
         return view('pages.home')->with(compact('news_list'));
     }
+
+    public function latest(){
+        $news_list = NewsPost::all()->sortByDesc("created_at");
+
+        #temporary use home view
+        return view('pages.home')->with(compact('news_list'));
+    }
 }

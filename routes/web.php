@@ -47,6 +47,8 @@ Route::middleware("auth")->group(function (){
     Route::get("/news/{slug}", [NewsController::class, "detail"]);
 
     Route::get('/tag/{id}', [NewsController::class, "category"]);
+
+    Route::get('/latest-news', [NewsController::class, "latest"]);
 });
 
 
