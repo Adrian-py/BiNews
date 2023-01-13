@@ -18,7 +18,13 @@
             <ul class="flex items-center gap-[2rem] text-label-m font-semibold desktop-s:px-[2rem]">
                 <li><a href="/home">Home</a></li>
                 <li><a href="/latest-news">Latest News</a></li>
-
+                <li><a href="#">Categories</a>
+                    <ul>
+                        @foreach($tags as $tag)
+                            <li><a href="/tag/{{$tag->id}}">{{$tag->name}}</a></li>
+                        @endforeach
+                    </ul>
+                </li>
             </ul>
         </div>
 
