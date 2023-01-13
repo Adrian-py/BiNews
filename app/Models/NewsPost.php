@@ -14,10 +14,10 @@ class NewsPost extends Model
     }
 
     public function likes(){
-        return $this->belongsToMany(Likes::class, 'likes');
+        return $this->belongsToMany(User::class, 'likes');
     }
 
     public function newsTags(){
-        return $this->hasMany(NewsTags::class);
+        return $this->belongsToMany(Tag::class, 'news_tags');
     }
 }

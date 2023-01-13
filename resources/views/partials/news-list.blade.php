@@ -2,7 +2,7 @@
     @foreach ($news_list as $news)
         <div>
             @if(!$news->image)
-                <img src="{{ asset("storage/images/" . $news->newsTags->first()->tag->name . "-placeholder.jpg") }}" alt="" class="w-full h-[16rem] object-cover">
+                <img src="{{ asset("storage/images/" . $news->newsTags->first()->name . "-placeholder.jpg") }}" alt="" class="w-full h-[16rem] object-cover">
             @else
                 <img src="{{ asset('storage/images/' . $news->image) }}" alt="{{ $news->title }}">
             @endif

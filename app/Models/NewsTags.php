@@ -9,11 +9,4 @@ class NewsTags extends Model
 {
     use HasFactory;
 
-    public function newsPost(){
-        return $this->belongsTo(NewsPost::class);
-    }
-
-    public function tag(){
-        return $this->belongsTo(Tag::class);
-    }
 }
