@@ -10,10 +10,10 @@ class NewsTags extends Model
     use HasFactory;
 
     public function newsPost(){
-        return $this->belongsTo(NewsPost::class, "news_post_id");
+        return $this->belongsTo(NewsPost::class);
     }
 
     public function tag(){
-        return $this->hasOne(Tag::class, "tags_id");
+        return $this->belongsTo(Tag::class);
     }
 }

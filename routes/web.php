@@ -44,6 +44,8 @@ Route::middleware("auth")->group(function (){
             "news_list" => NewsPost::all(),
         ]);
     });
+
+    // News Detail Page
     Route::get("/news/{slug}", [NewsController::class, "detail"]);
 });
 

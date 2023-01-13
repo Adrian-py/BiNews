@@ -16,6 +16,5 @@ class NewsTagSeeder extends Seeder
     public function run()
     {
         //
-        NewsTags::factory()->count(40)->create();
     }
 }

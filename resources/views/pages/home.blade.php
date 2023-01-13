@@ -29,9 +29,9 @@
 
         @endauth
 
-        <section class="">
-            <h4>BINEWS</h4>
-            <h2>Read and Keep Up With The Latest News</h2>
+        <section class="py-[2.5rem] px-hor-mob desktop-s:px-hor">
+            <h4 class="mb-[1rem] text-neutrals-200 text-support-overline">BINEWS</h4>
+            <h2 class="mb-[3rem] text-headline-s font-bold desktop-s:text-headline-l">Read and Keep Up With<br>The Latest News</h2>
 
             @include("partials.news-list")
         </section>
