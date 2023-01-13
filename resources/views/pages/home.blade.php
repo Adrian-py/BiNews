@@ -26,7 +26,16 @@
         @endguest
 
         @auth
+            <section class="px-hor-mob pt-[4vh] pb-[2vh] desktop-s:px-hor">
+                <h1 class="mb-[1rem] text-headline-l font-bold">Top News</h1>
+                <a class="relative min-h-[35rem] pl-[5.556vw] pb-[5rem] flex flex-col justify-end text-white-100 font-bold" href="{{ "/news/" . $headline_news->slug }}">
+                    <img src="{{ asset('storage/images/' . (!$headline_news->image ? $headline_news->newsTags->first()->name . '-placeholder.jpg' : $headline_news->image)) }}" alt="{{ $headline_news->title }}" class="absolute top-[0] left-[0] w-full h-full z-[-2] object-cover">
 
+                    <p class="text-headline-xs">{{ date_format($headline_news->created_at,"d M Y") }}</p>
+                    <h2 class="text-headline-l capitalize">{{ $headline_news->title }}</h2>
+                    <div class="absolute top-[0] left-[0] w-full h-full bg-neutrals-400/60 z-[-1]"></div>
+                </a>
+            </section>
         @endauth
 
         <section class="py-[2.5rem] px-hor-mob desktop-s:px-hor">

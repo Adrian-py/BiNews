@@ -40,8 +40,10 @@ Route::middleware("auth")->group(function (){
 
     // Home Page
     Route::get("/home", function(){
+        $top_news =  NewsPost::withCount("likes")->orderBy("likes_count", "desc")->first();
         return view("pages.home", [
-            "news_list" => NewsPost::all(),
+            "headline_news" => $top_news,
+            "news_list" => NewsPost::all()->except($top_news->id),
         ]);
     });
 

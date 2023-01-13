@@ -8,7 +8,7 @@
             @endif
 
             <div class="px-[5.26%] py-[1rem] flex flex-col gap-[1rem]">
-                <h3 class="max-h-[84px] leading-10 text-headline-s font-bold capitalize text-ellipsis overflow-hidden">{{ $news->title }}</h3>
+                <h3 class="h-[84px] leading-10 text-headline-s font-bold capitalize text-ellipsis overflow-hidden">{{ $news->title }}</h3>
                 <p class="">{{ date_format($news->created_at,"d M Y") }}</p>
 
                 <a href={{ "/news/" . $news->slug }} class="text-primary-600 underline">Read article</a>
