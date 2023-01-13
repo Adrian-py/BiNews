@@ -25,7 +25,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        $tags = Tag::all();
-        view()->share('tags', $tags);
+        view()->share('tags', Tag::class ? Tag::all() : null);
     }
 }
