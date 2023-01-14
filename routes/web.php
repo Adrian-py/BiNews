@@ -40,12 +40,18 @@ Route::middleware("auth")->group(function (){
 
     // Home Page
     Route::get("/home", function(){
-        $top_news =  NewsPost::withCount("likes")->orderBy("likes_count", "desc")->first();
+        $news_list =  NewsPost::withCount("likes")->orderBy("likes_count", "desc")->get();
+
+        $top_news = $news_list->first();
+
         return view("pages.home", [
             "headline_news" => $top_news,
-            "news_list" => NewsPost::all()->except($top_news->id),
+            "news_list" => $news_list->except($top_news->id),
         ]);
     });
+
+    // Handle Liking News
+    Route::post("/likes/{news_post:slug}", [NewsController::class, "like"]);
 
     // News Detail Page
     Route::get("/news/{slug}", [NewsController::class, "detail"]);
