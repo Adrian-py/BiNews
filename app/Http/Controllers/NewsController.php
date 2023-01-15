@@ -15,9 +15,11 @@ class NewsController extends Controller
     //
     public function detail(Request $request){
         $slug = $request->slug;
-        $news_detail = NewsPost::where('slug', '=', $slug)->firstOrFail();
+        $news = NewsPost::where('slug', '=', $slug)->firstOrFail();
 
-        return view('pages.news-detail')->with(compact('news_detail'));
+        $latest_news = NewsPost::all()->sortByDesc("created_at")->take(3);
+
+        return view('pages.news')->with(compact('news', 'latest_news'));
     }
 
     public function category(Request $request){
