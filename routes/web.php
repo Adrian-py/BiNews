@@ -59,6 +59,9 @@ Route::middleware("auth")->group(function (){
     Route::get('/tag/{id}', [NewsController::class, "category"]);
 
     Route::get('/latest-news', [NewsController::class, "latest"]);
+
+    Route::get('/add-news', [NewsController::class, "viewAddNews"]);
+    Route::post('/add-news', [NewsController::class, "addNews"]);
 });
 
 

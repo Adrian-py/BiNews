@@ -9,4 +9,8 @@ class NewsTags extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'news_post_id',
+        'tag_id'
+    ];
 }
