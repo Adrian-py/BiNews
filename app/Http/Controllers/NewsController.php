@@ -25,17 +25,15 @@ class NewsController extends Controller
     }
 
     public function category(Request $request){
-        $tag_id = $request->id;
-        $news_list = Tag::find($tag_id)->newsTags()->get();
+        $tag = Tag::find($request->id);
+        $news_list = $tag->newsTags;
 
-        #temporary use home view
-        return view('pages.home')->with(compact('news_list'));
+        return view('pages.category')->with(compact('tag', 'news_list'));
     }
 
     public function latest(){
         $news_list = NewsPost::all()->sortByDesc("created_at");
 
-        #temporary use home view
         return view('pages.latest-news', [
             "news_list" => $news_list,
         ]);
