@@ -69,7 +69,7 @@ class NewsController extends Controller
 
     public function addNews(Request $request){
         $request->validate([
-            'title' => 'required|unique:news_posts',
+            'title' => 'required|unique:news_posts,title',
             'image' => 'mimes:png,jpg,jpeg',
             'tags' => 'required',
             'content' => 'required'
@@ -103,5 +103,75 @@ class NewsController extends Controller
         }
 
         return back();
+    }
+
+    public function viewUpdateNews(Request $request){
+        $news = NewsPost::where('slug', '=', $request->slug)->firstOrFail();
+
+        return view('pages.update-news')->with(compact('news'));
+    }
+
+    public function updateNews(Request $request){
+        $newsPost = NewsPost::where('slug', '=', $request->slug)->firstOrFail();
+        $request->validate([
+            'title' => 'required',
+            'image' => 'mimes:png,jpg,jpeg',
+            'tags' => 'required',
+            'content' => 'required'
+        ]);
+
+        if(!$request->image){
+            $newsPost->title = $request->title;
+            $newsPost->slug = Str::slug($request->title);
+            $newsPost->content = $request->content;
+
+            $newsPost->save();
+        }
+        else{
+            Storage::putFileAs('/public/images', $request->image, $request->file('image')->getClientOriginalName());
+
+            $newsPost->title = $request->title;
+            $newsPost->slug = Str::slug($request->title);
+            $newsPost->content = $request->content;
+            $newsPost->image = $request->file('image')->getClientOriginalName();
+
+            $newsPost->save();
+        }
+        foreach($newsPost->newsTags as $tag){
+            $tag->pivot->delete();
+        }
+
+        foreach($request->tags as $tag){
+            NewsTags::create([
+                'news_post_id' => $newsPost->id,
+                'tag_id' => $tag
+            ]);
+        }
+
+        return redirect('/news/'.$newsPost->slug);
+    }
+
+    public function deleteNews(Request $request){
+        $newsPost = NewsPost::where('slug', '=', $request->slug)->firstOrFail();
+
+        foreach($newsPost->newsTags as $tag){
+            $tag->pivot->delete();
+        }
+
+        foreach($newsPost->likes as $like){
+            $like->delete();
+        }
+
+        $newsPost->delete();
+
+        return redirect('/home');
+    }
+
+    public function manage(){
+        $user = Auth::user();
+
+        $news_list = $user->newsPost;
+
+        return view('pages.manage-news')->with(compact('news_list'));
     }
 }

@@ -64,6 +64,13 @@ Route::middleware("auth")->group(function (){
 
     Route::get('/add-news', [NewsController::class, "viewAddNews"]);
     Route::post('/add-news', [NewsController::class, "addNews"]);
+
+    Route::get('/update-news/{slug}', [NewsController::class, "viewUpdateNews"]);
+    Route::post('/update-news/{slug}', [NewsController::class, "updateNews"]);
+
+    Route::post('/delete-news/{slug}', [NewsController::class, "deleteNews"]);
+
+    Route::get('/manage', [NewsController::class, "manage"]);
 });
 
 

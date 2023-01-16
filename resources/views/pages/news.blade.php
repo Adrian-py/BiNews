@@ -18,14 +18,13 @@
                     <button type="submit">
                         <img src="{{ asset('images/like.svg') }}" alt="">
                     </button>
-                    @if ($errors->any())
-                        <div>
-                            {{ $errors->first() }}
-                        </div>
-                    @endif
                 </form>
             </div>
-            <img src="{{ asset('storage/images/lifestyle-placeholder.jpg') }}" alt="">
+            @if(!$news->image)
+                <img src="{{ asset("storage/images/" . $news->newsTags->first()->name . "-placeholder.jpg") }}" alt="" class="w-full h-[16rem] object-cover">
+            @else
+                <img src="{{ asset('storage/images/' . $news->image) }}" alt="{{ $news->title }}">
+            @endif
             <div class="flex gap-2 pb-4">
                 @foreach ($news->newsTags as $tags)
                     <div class="px-2 py-1 border-2 border-black">
