@@ -26,7 +26,7 @@ class NewsController extends Controller
 
     public function category(Request $request){
         $tag = Tag::find($request->id);
-        $news_list = $tag->newsTags;
+        $news_list = $tag->newsTags()->withCount("likes")->orderBy("likes_count", "desc")->get();
 
         return view('pages.category')->with(compact('tag', 'news_list'));
     }
