@@ -17,7 +17,7 @@ module.exports = {
                 hor: "5.55rem",
             },
             fontFamily: {
-                spectral: ["Spectral", "serif"],
+                sofiaSans: ["Sofia Sans", "sans-serif"],
             },
             fontSize: {
                 "headline-xl": "5.5rem",

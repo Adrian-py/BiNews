@@ -20,8 +20,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware("guest")->group(function (){
     // Welcome Page
     Route::get('/', function () {
+        $news_list =  NewsPost::withCount("likes")->orderBy("likes_count", "desc")->get();
+
         return view('pages.home', [
-            "news_list" => NewsPost::all(),
+            "news_list" => $news_list,
         ]);
     });
 

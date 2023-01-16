@@ -32,7 +32,7 @@ class NewsController extends Controller
     }
 
     public function latest(){
-        $news_list = NewsPost::all()->sortByDesc("created_at");
+        $news_list = NewsPost::withCount("likes")->orderBy("created_at", "desc")->get();
 
         return view('pages.latest-news', [
             "news_list" => $news_list,
@@ -44,7 +44,7 @@ class NewsController extends Controller
             "news_post_id" => $newsPost->id,
             "user_id" => Auth::user()->id,
         ];
-        Likes::create($newLike);
+
         return back();
     }
 
