@@ -13,7 +13,17 @@
             <p>{{ date_format($news->created_at, 'd M Y') }}. by {{ $news->user->name }}</p>
             <div class="flex items-end">
                 <p class="leading-5 px-1">{{ $news->likes->count() }}</p>
-                <img src="{{ asset('images/like.svg') }}" alt="">
+                <form action="/likes/{{$news->slug}}" method="POST">
+                    @csrf
+                    <button type="submit">
+                        <img src="{{ asset('images/like.svg') }}" alt="">
+                    </button>
+                    @if ($errors->any())
+                        <div>
+                            {{ $errors->first() }}
+                        </div>
+                    @endif
+                </form>
             </div>
             <img src="{{ asset('storage/images/lifestyle-placeholder.jpg') }}" alt="">
             <div class="flex gap-2 pb-4">

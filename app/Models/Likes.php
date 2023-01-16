@@ -9,4 +9,8 @@ class Likes extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'news_post_id',
+        'user_id'
+    ];
 }

@@ -53,7 +53,7 @@ Route::middleware("auth")->group(function (){
     });
 
     // Handle Liking News
-    Route::post("/likes/{news_post:slug}", [NewsController::class, "like"]);
+    Route::post("/likes/{slug}", [NewsController::class, "like"]);
 
     // News Detail Page
     Route::get("/news/{slug}", [NewsController::class, "detail"]);

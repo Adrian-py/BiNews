@@ -39,13 +39,27 @@ class NewsController extends Controller
         ]);
     }
 
-    public function like(NewsPost $newsPost){
-        $newLike = [
-            "news_post_id" => $newsPost->id,
-            "user_id" => Auth::user()->id,
-        ];
+    public function like(Request $request){
+        $newsPost = NewsPost::where('slug', '=', $request->slug)->firstOrFail();
+        $user = Auth::user();
 
-        return back();
+        $likes = Likes::where('news_post_id', '=', $newsPost->id)
+                        ->where('user_id', '=', $user->id)->get();
+
+        // echo $like->user_id;
+        if($likes->count() > 0){
+            foreach($likes as $like){
+                $like->delete();
+            }
+        }
+        else{
+            Likes::create([
+                'news_post_id' => $newsPost->id,
+                'user_id' => $user->id
+            ]);
+        }
+
+        return redirect()->back();
     }
 
     public function viewAddNews(){
