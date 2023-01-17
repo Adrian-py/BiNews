@@ -604,6 +604,9 @@ video {
 .min-h-\[25rem\] {
   min-height: 25rem;
 }
+.min-h-\[40rem\] {
+  min-height: 40rem;
+}
 .w-screen {
   width: 100vw;
 }
@@ -1015,6 +1018,10 @@ video {
 
   .desktop-s\:min-h-\[35rem\] {
     min-height: 35rem;
+  }
+
+  .desktop-s\:min-h-\[40rem\] {
+    min-height: 40rem;
   }
 
   .desktop-s\:w-\[44\.4vw\] {
