@@ -32,13 +32,13 @@ class NewsController extends Controller
 
     public function category(Request $request){
         $tag = Tag::find($request->id);
-        $news_list = $tag->newsTags()->withCount("likes")->orderBy("likes_count", "desc")->get();
+        $news_list = $tag->newsTags()->withCount("likes")->orderBy("likes_count", "desc")->paginate(9);
 
         return view('pages.category')->with(compact('tag', 'news_list'));
     }
 
     public function latest(){
-        $news_list = NewsPost::withCount("likes")->orderBy("created_at", "desc")->get();
+        $news_list = NewsPost::withCount("likes")->orderBy("created_at", "desc")->paginate(9);
 
         return view('pages.latest-news', [
             "news_list" => $news_list,

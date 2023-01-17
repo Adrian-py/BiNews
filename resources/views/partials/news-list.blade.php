@@ -25,3 +25,6 @@
         </div>
     @endforeach
 </div>
+<div>
+    {{ $news_list->links() }}
+</div>

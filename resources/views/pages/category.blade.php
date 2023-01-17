@@ -1,6 +1,6 @@
 @extends("layout.layout")
 
-@section("title", "{{$tag->name}}")
+@section("title", "Category")
 
 @section("content")
     @include("partials.navbar")
