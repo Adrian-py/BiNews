@@ -40,7 +40,7 @@
 
         @auth
             <div class="group relative flex items-center font-semibold cursor-pointer">
-                <img src="{{ asset('storage/images/' . Auth::user()->image) }}" alt="User Profile Picture" class="w-[2.5rem] aspect-square mr-[1rem]">
+                <img src="{{ asset('storage/images/' . Auth::user()->image) }}" alt="User Profile Picture" class="w-[2.5rem] aspect-square mr-[1rem] rounded-full">
 
                 <h2 class="text-body-l mr-[0.25rem]">{{ Auth::user()->name }}</h2>
 

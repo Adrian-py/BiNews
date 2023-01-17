@@ -5,14 +5,14 @@
 @section('content')
     @include('partials.navbar')
 
-    <main class="relatiw-full flex flex-col items-center px-hor desktop-s:py-[2.5rem]">
+    <main class="w-full flex flex-col items-center px-hor-mob desktop-s:px-hor desktop-s:py-[2.5rem]">
         <h1 class="text-headline-m font-bold text-center desktop-s:text-headline-l">Profile</h1>
-        <div class="w-full flex px-10 py-5">
-            <img class="aspect-square w-1/4 mr-[4vw] object-fit rounded-full" src="{{ asset('storage/images/' . $user->image) }}">
+        <div class="w-full flex flex-col items-center px-10 py-5 desktop-s:flex-row">
+            <img class="mb-[2rem] aspect-square w-3/4 mr-[4vw] object-fit rounded-full desktop-s:w-1/4 desktop-s:mb-[0]" src="{{ asset('storage/images/' . $user->image) }}">
 
-            <div class="flex flex-col grow">
-                <div class="flex items-center">
-                    <p class="max-w-[3/4] mr-[2vw] text-headline-m font-bold line desktop-s:text-headline-l">{{ $user->name }}</p>
+            <div class="flex flex-col grow items-center text-center gap-[1rem] desktop-s:gap-[0] desktop-s:text-left desktop-s:items-start">
+                <div class="flex flex-col items-center desktop-s:flex-row">
+                    <p class="max-w-[3/4 text-headline-m font-bold line desktop-s:text-headline-l desktop-s:mr-[2vw]">{{ $user->name }}</p>
 
                     <a href="/update-profile" class="p-[0.5rem] text-neutrals-400/[.4] rounded-full transition-all duration-150 ease-in-out hover:bg-neutrals-400/[.05]">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
