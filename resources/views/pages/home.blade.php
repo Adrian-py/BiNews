@@ -10,7 +10,7 @@
             <section class="relative w-full min-h-[60vh] px-hor-mob flex justify-between items-center desktop-s:min-h-fit desktop-s:px-hor desktop-s:py-[5rem]">
                 <div class="h-full flex flex-col items-center font-semibold desktop-s:items-start">
                     <p class="text-support-overline text-center desktop-s:text-left">EASILY DISCOVER</p>
-                    <h1 class="text-headline-m font-bold text-center desktop-s:text-headline-l desktop-s:text-left">A Reliable<br>Trustworth Source</h1>
+                    <h1 class="text-headline-m font-bold text-center desktop-s:text-headline-l desktop-s:text-left">A Reliable<br>Trustworthy Source</h1>
                     <a href="/login" class="px-[1.5rem] py-[1rem] text-white-100 text-label-s text-center bg-secondary-600 rounded-lg">START READING</a>
                 </div>
 
