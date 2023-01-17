@@ -69,6 +69,8 @@ Route::middleware("auth")->group(function () {
 
     Route::post('/update-profile', [UserController::class, "update"]);
     Route::post('/password-profile', [UserController::class, "updatePassword"]);
+
+    Route::get('/search', [NewsController::class, "search"]);
 });
 
 Route::middleware("admin")->group(function () {
