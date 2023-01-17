@@ -5,7 +5,7 @@
 @section('content')
     @include('partials.navbar')
     <section class="pt-[4vh] pb-[2vh] px-hor-mob flex flex-col desktop-s:px-hor">
-        <h1 class="mb-[1rem] text-headline-s font-bold desktop-s:text-headline-l">Latest News</h1>
+        <h1 class="mb-[1rem] text-headline-s font-bold desktop-s:text-headline-l">Manage Your News</h1>
         <a href="/add-news" class="w-fit mb-[1rem] px-[1rem] py-[0.5rem] flex gap-[0.5rem] bg-primary-300 text-white-100 rounded-lg">
             Create Post
 
