@@ -26,5 +26,5 @@
     @endforeach
 </div>
 <div>
-    {{ $news_list->links() }}
+    @include("partials.pagination")
 </div>
