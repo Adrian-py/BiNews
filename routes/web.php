@@ -63,6 +63,15 @@ Route::middleware("auth")->group(function () {
 
     Route::get('/latest-news', [NewsController::class, "latest"]);
 
+    Route::get('/profile', [UserController::class, "index"]);
+    Route::get('/update-profile', [UserController::class, "updatePage"]);
+    Route::get('/password-profile', [UserController::class, "updatePassPage"]);
+
+    Route::post('/update-profile', [UserController::class, "update"]);
+    Route::post('/password-profile', [UserController::class, "updatePassword"]);
+});
+
+Route::middleware("admin")->group(function () {
     Route::get('/add-news', [NewsController::class, "viewAddNews"]);
     Route::post('/add-news', [NewsController::class, "addNews"]);
 
@@ -72,11 +81,4 @@ Route::middleware("auth")->group(function () {
     Route::post('/delete-news/{slug}', [NewsController::class, "deleteNews"]);
 
     Route::get('/manage', [NewsController::class, "manage"]);
-
-    Route::get('/profile', [UserController::class, "index"]);
-    Route::get('/update-profile', [UserController::class, "updatePage"]);
-    Route::get('/password-profile', [UserController::class, "updatePassPage"]);
-
-    Route::post('/update-profile', [UserController::class, "update"]);
-    Route::post('/password-profile', [UserController::class, "updatePassword"]);
 });
