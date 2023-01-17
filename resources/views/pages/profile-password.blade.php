@@ -6,7 +6,7 @@
     @include('partials.navbar')
 
     <main
-        class="w-full h-screen px-hor-mob flex flex-col items-start justify-center desktop-s:px-[28.125vw] desktop-s:py-[23.4375vh] desktop:justify-start">
+        class="w-full h-screen px-hor-mob flex flex-col items-start justify-start desktop-s:px-[28.125vw] desktop-s:pt-[12vh] desktop:justify-start">
         <h1 class="mb-[4.88vh] text-headline-m font-bold text-center desktop-s:text-headline-l desktop-s:text-left">Change
             Passowrd</h1>
 
