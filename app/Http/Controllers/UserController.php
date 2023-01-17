@@ -21,6 +21,11 @@ class UserController extends Controller
         return view('pages.profile-update')->with(compact('user'));
     }
 
+    public function updatePassPage()
+    {
+        return view('pages.profile-password');
+    }
+
     public function update(Request $request)
     {
         $user = Auth::user();
@@ -39,6 +44,20 @@ class UserController extends Controller
 
         Storage::putFileAs('/public/images', $request->image, $request->file('image')->getClientOriginalName());
 
+        return redirect('/profile');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $user = Auth::user();
+
+        $request->validate([
+            "password" => "required|min:5|max:20|confirmed"
+        ]);
+
+        $user = User::find($user->id);
+        $user->password = bcrypt($request->password);
+        $user->save();
         return redirect('/profile');
     }
 }
