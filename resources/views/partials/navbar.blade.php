@@ -42,7 +42,7 @@
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M16.4173 8L11.9191 12.5012L7.41439 8L6 9.41539L11.9201 15.33L17.8327 9.41489L16.4173 8Z" fill="#003952" fill-opacity="0.25"/>
                 </svg>
 
-                <div class="hidden w-full absolute top-[100%] left-[-5px] pt-[1rem] group-hover:block">
+                <div class="hidden w-full absolute top-[100%] left-[-5px] pt-[1rem] z-10 group-hover:block">
                     <div class="flex flex-col bg-white-100 border-[1px] border-neutrals-50">
                         <a href="/profile" class="w-full pr-[1rem] py-[0.75rem] flex justify-end items-center gap-[0.75rem] text-right transition-all duration-150 ease-in-out hover:bg-neutrals-25/5">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
