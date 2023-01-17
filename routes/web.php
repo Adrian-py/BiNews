@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware("guest")->group(function () {
     // Welcome Page
     Route::get('/', function () {
-        $news_list =  NewsPost::withCount("likes")->orderBy("likes_count", "desc")->get();
+        $news_list =  NewsPost::withCount("likes")->orderBy("likes_count", "desc")->paginate(9);
 
         return view('pages.home', [
             "news_list" => $news_list,
@@ -43,13 +43,13 @@ Route::middleware("auth")->group(function () {
 
     // Home Page
     Route::get("/home", function () {
-        $news_list =  NewsPost::withCount("likes")->orderBy("likes_count", "desc")->get();
+        $news_list =  NewsPost::withCount("likes")->orderBy("likes_count", "desc")->paginate(9);
 
-        $top_news = $news_list->first();
+        $top_news = NewsPost::withCount("likes")->orderBy("likes_count", "desc")->first();
 
         return view("pages.home", [
             "headline_news" => $top_news,
-            "news_list" => $news_list->except($top_news->id),
+            "news_list" => $news_list,
         ]);
     });
 
