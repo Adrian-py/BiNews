@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\UserController;
 use App\Models\NewsPost;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware("guest")->group(function (){
+Route::middleware("guest")->group(function () {
     // Welcome Page
     Route::get('/', function () {
         $news_list =  NewsPost::withCount("likes")->orderBy("likes_count", "desc")->get();
@@ -36,12 +37,12 @@ Route::middleware("guest")->group(function (){
     Route::post("/register", [RegisterController::class, "store"])->name("store-register");
 });
 
-Route::middleware("auth")->group(function (){
+Route::middleware("auth")->group(function () {
     // Logout
     Route::post("/logout", [LoginController::class, "logout"])->name("logout");
 
     // Home Page
-    Route::get("/home", function(){
+    Route::get("/home", function () {
         $news_list =  NewsPost::withCount("likes")->orderBy("likes_count", "desc")->get();
 
         $top_news = $news_list->first();
@@ -71,6 +72,11 @@ Route::middleware("auth")->group(function (){
     Route::post('/delete-news/{slug}', [NewsController::class, "deleteNews"]);
 
     Route::get('/manage', [NewsController::class, "manage"]);
+
+    Route::get('/profile', [UserController::class, "index"]);
+    Route::get('/update-profile', [UserController::class, "updatePage"]);
+    Route::get('/password-profile', [UserController::class, "updatePassPage"]);
+
+    Route::post('/update-profile', [UserController::class, "update"]);
+    Route::post('/password-profile', [UserController::class, "updatePassword"]);
 });
-
-
