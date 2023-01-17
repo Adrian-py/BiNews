@@ -180,4 +180,12 @@ class NewsController extends Controller
 
         return view('pages.manage-news')->with(compact('news_list'));
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+        $news_list = NewsPost::where('title', 'LIKE', "%$search%")->withCount("likes")->orderBy("likes_count", "desc")->paginate(9);
+
+        return view('pages.search')->with(compact('news_list'));
+    }
 }

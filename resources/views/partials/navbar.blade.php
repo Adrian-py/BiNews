@@ -22,6 +22,12 @@
                         </ul>
                     </div>
                 </li>
+                <li><a href="/search">Search</a></li>
+                @auth
+                @if(Auth::user()->role == "admin")
+                <li><a href="/manage">Manage</a></li>
+                @endif
+                @endauth
             </ul>
         </div>
 
