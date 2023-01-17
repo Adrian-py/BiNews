@@ -20,7 +20,7 @@
     </header>
 
     <main class="w-full h-screen px-hor-mob flex flex-col items-start justify-center desktop-s:px-[28.125vw] desktop-s:py-[23.4375vh] desktop:justify-start">
-        <h1 class="mb-[4.88vh] text-headline-m font-bold text-center desktop-s:text-headline-l desktop-s:text-left">Create a new acccount!</h1>
+        <h1 class="mb-[4.88vh] text-headline-m font-bold text-center desktop-s:text-headline-l desktop-s:text-left">Create a new account!</h1>
 
         <form action="{{ route("store-register") }}" method="POST" class="w-full flex flex-col">
             @csrf
