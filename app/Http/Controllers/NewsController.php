@@ -17,11 +17,17 @@ class NewsController extends Controller
     //
     public function detail(Request $request){
         $slug = $request->slug;
-        $news = NewsPost::where('slug', '=', $slug)->firstOrFail();
+        $news = NewsPost::where('slug', '=', $slug)->withCount("likes")->get()->firstOrFail();
 
         $latest_news = NewsPost::all()->sortByDesc("created_at")->take(3);
 
-        return view('pages.news')->with(compact('news', 'latest_news'));
+        $user_liked = Likes::where("news_post_id", $news->id)->where("user_id", Auth::user()->id)->exists();
+
+        return view('pages.news', [
+            "news" => $news,
+            "latest_news" => $latest_news,
+            "user_liked" => $user_liked,
+        ]);
     }
 
     public function category(Request $request){

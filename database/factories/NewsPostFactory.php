@@ -16,7 +16,7 @@ class NewsPostFactory extends Factory
     {
         $values = [
             "title" => $this->faker->words(rand(5, 7), true),
-            "content" => $this->faker->text(),
+            "content" => $this->faker->paragraphs(rand(4, 6), true),
             "user_id" => 1,
         ];
 

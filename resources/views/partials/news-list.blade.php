@@ -10,6 +10,7 @@
             <div class="px-[5.26%] py-[1rem] flex flex-col gap-[1rem]">
                 <h3 class="max-h-[80px] leading-10 text-headline-s font-bold capitalize text-ellipsis overflow-hidden">{{ $news->title }}</h3>
                 <p class="">{{ date_format($news->created_at,"d M Y") }}</p>
+
                 <div class="w-fit text-white-100 bg-neutrals-25 rounded-lg">
                     <div class="w-full h-full px-[1.25rem] py-[0.4rem] flex items-center gap-[0.75rem]">
                         <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,6 +19,7 @@
                         <p class="">{{ $news->likes_count }}</p>
                     </div>
                 </div>
+
                 <a href={{ "/news/" . $news->slug }} class="text-primary-600 underline">Read article</a>
             </div>
         </div>
