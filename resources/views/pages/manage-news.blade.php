@@ -4,14 +4,16 @@
 
 @section('content')
     @include('partials.navbar')
-    <section class="pt-[4vh] pb-[2vh] px-hor-mob desktop-s:px-hor">
+    <section class="pt-[4vh] pb-[2vh] px-hor-mob flex flex-col desktop-s:px-hor">
         <h1 class="mb-[1rem] text-headline-s font-bold desktop-s:text-headline-l">Latest News</h1>
-        <form action="/add-news" method="GET">
-            @csrf
-            <button type="submit">
-                Create News Post
-            </button>
-        </form>
+        <a href="/add-news" class="w-fit mb-[1rem] px-[1rem] py-[0.5rem] flex gap-[0.5rem] bg-primary-300 text-white-100 rounded-lg">
+            Create Post
+
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 19V13H5V11H11V5H13V11H19V13H13V19H11Z" fill="currentColor"/>
+            </svg>
+        </a>
+
         <div class="grid grid-cols-1 gap-[2.5rem] desktop-s:grid-cols-3">
             @foreach ($news_list as $news)
                 <div>
@@ -33,16 +35,12 @@
                             </div>
                         </div> --}}
                         <a href={{ "/news/" . $news->slug }} class="text-primary-600 underline">Read article</a>
-                        <div>
-                            <form action="/update-news/{{$news->slug}}" method="GET">
-                                @csrf
-                                <button type="submit">
-                                    Update
-                                </button>
-                            </form>
+                        <div class="flex gap-[1rem]">
+                            <a href="{{ '/update-news/' . $news->slug }}" class="px-[1rem] py-[0.5rem] bg-primary-300 text-white-100 rounded-lg">Update</a>
+
                             <form action="/delete-news/{{$news->slug}}" method="POST">
                                 @csrf
-                                <button type="submit">
+                                <button type="submit" class="px-[1rem] py-[0.5rem] bg-warning-100 text-white-100 rounded-lg">
                                     Delete
                                 </button>
                             </form>
