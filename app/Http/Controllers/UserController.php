@@ -31,18 +31,19 @@ class UserController extends Controller
         $user = Auth::user();
         $validated = $request->validate([
             "name" => "required|min:5|max:20|unique:users,name," . $user->id,
-            "image" => "required|mimes:png,jpg,jpeg",
             "email" => "required|email:dns|unique:users,email," . $user->id,
+            "image" => "mimes:png,jpg,jpeg",
         ]);
 
 
         $user = User::find($user->id);
         $user->name = $validated['name'];
         $user->email = $validated['email'];
-        $user->image = $request->file('image')->getClientOriginalName();
+        if($request->file('image')){
+            $user->image = $request->file('image')->getClientOriginalName();
+            Storage::putFileAs('/public/images', $request->image, $request->file('image')->getClientOriginalName());
+        }
         $user->save();
-
-        Storage::putFileAs('/public/images', $request->image, $request->file('image')->getClientOriginalName());
 
         return redirect('/profile');
     }
