@@ -108,7 +108,7 @@ class NewsController extends Controller
             ]);
         }
 
-        return back();
+        return redirect('/news/'.$newsPost->slug);
     }
 
     public function viewUpdateNews(Request $request){
@@ -170,7 +170,7 @@ class NewsController extends Controller
 
         $newsPost->delete();
 
-        return redirect('/home');
+        return redirect('/manage');
     }
 
     public function manage(){
