@@ -15,7 +15,7 @@
             <div class="mb-[0.75rem]">
                 <input type="text" name="name"
                     class="w-full mb-[0.5rem] px-[1rem] py-[0.5rem] border-2 border-neutrals-200 desktop-s:py-[0.75rem] @error('name') border-warning-100 @enderror"
-                    placeholder="Name" value="{{ old('name') }}">
+                    placeholder="Name" value="{{ Auth::user()->name }}">
 
                 @error('name')
                     <span class="text-warning-100">{{ $message }}</span>
@@ -25,7 +25,7 @@
             <div class="mb-[0.75rem]">
                 <input type="email" name="email"
                     class="w-full mb-[0.5rem] px-[1rem] py-[0.5rem] border-2 border-neutrals-200 desktop-s:py-[0.75rem] @error('email') border-warning-100 @enderror"
-                    placeholder="Email" value="{{ old('email') }}">
+                    placeholder="Email" value="{{ Auth::user()->email }}">
 
                 @error('email')
                     <span class="text-warning-100">{{ $message }}</span>
